@@ -1,0 +1,46 @@
+---
+title: "Example of the Report from Workshop"
+author: "Nicoleta"
+date: "November 3, 2015"
+output: html_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r, echo=FALSE}
+# Enter the data
+ENERGY <- read.table("https://raw.githubusercontent.com/alexcipro/iCMS2015_Workshop/master/Data%20sets/NRG_Data.csv", head = TRUE, sep = "," )
+```
+
+## Summary statistics
+
+```{r}
+head(ENERGY)
+summary(ENERGY$NRG)
+summary(ENERGY$GDP)
+```
+
+## Plot histograms
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+par(mfrow=c(1,2)) 
+hist(ENERGY$NRG)
+hist(ENERGY$GDP)
+```
+
+## Plot NRG versus GDP
+
+Explanatory text will be here...
+
+```{r, echo=FALSE}
+par(mfrow=c(1,1)) 
+plot(ENERGY$GDP,ENERGY$NRG, xlab = "GDP (Million Euro)", ylab = "Energy consumption (thousand TOE)", main = "Correlation between energy consumption and GDP")
+```
+
+The end of the report!!!
+
+
